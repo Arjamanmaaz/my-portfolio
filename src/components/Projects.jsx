@@ -1,53 +1,63 @@
 import React, { useState } from 'react';
-import { FaUsers, FaCalendar } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
-function Leadership({ darkMode }) {
+function Projects({ darkMode }) {
   const [hoveredCard, setHoveredCard] = useState(null);
 
-  const leadershipRoles = [
+  const projects = [
     {
-      title: "Student Placement Coordinator",
-      organization: "Netaji Subhas University",
-      period: "Aug 2025 – Mar 2026",
-      points: [
-        "Coordinated communication between recruiters, students, and faculty for placement operations",
-        "Organized placement drives, interview scheduling, and student registrations ensuring smooth multi-stakeholder coordination"
-      ]
+      title: "Gymexora – AI-Powered Fitness Management Platform",
+      tech: "React.js, FastAPI, PostgreSQL, JWT, Groq AI",
+      description: [
+        "Engineered a full-stack fitness management platform connecting gym owners, trainers, and members",
+        "Implemented secure JWT-based authentication and role-based access control (RBAC)",
+        "Designed 4 analytical dashboards tracking Members, Revenue, Trainer Performance, and User Engagement KPIs",
+        "Built data tracking modules (Diet, Workout, Progress, Achievements) integrated with Groq AI"
+      ],
+      github: "https://github.com/Arjamanmaaz/gymexora",
+      live: "https://github.com/Arjamanmaaz/gymexora"
     },
     {
-      title: "Operations Lead",
-      organization: "E-Cell, Netaji Subhas University",
-      period: "May 2025 – Nov 2025",
-      points: [
-        "Managed operational planning and execution of entrepreneurship programs and events",
-        "Tracked and maintained program budgets, monitoring expenses against allocations",
-        "Drove process improvement initiatives that enhanced event delivery and operational efficiency"
-      ]
+      title: "Sales & Customer Analytics Dashboard",
+      tech: "SQL, Power BI, DAX, Power Query",
+      description: [
+        "Analyzed retail sales and customer transaction data using SQL to identify revenue trends",
+        "Developed 3 interconnected Power BI dashboards (Sales, Customer, Product Analytics) with DAX measures",
+        "Applied Power Query for data transformation and ETL to support business performance monitoring"
+      ],
+      github: "https://github.com/Arjamanmaaz/PowerBi-Sales-Dashboard",
+      live: "https://github.com/Arjamanmaaz/PowerBi-Sales-Dashboard"
     },
     {
-      title: "Club Advisor (Operations)",
-      organization: "Code Busters N Coding Club",
-      period: "May 2025 – Nov 2025",
-      points: [
-        "Oversaw club operations, activity planning, and member engagement",
-        "Coordinated organizing teams for successful event execution"
-      ]
+      title: "FixBuddy – Service Provider Web Application",
+      tech: "React.js, JavaScript, HTML5, CSS3",
+      description: [
+        "Designed and developed responsive frontend interfaces for a service-based web application",
+        "Built reusable React.js components for Landing Pages, Authentication, and Service Request modules",
+        "Implemented responsive UI design ensuring cross-device compatibility"
+      ],
+      github: "#",
+      live: "#"
     },
     {
-      title: "Sergeant at Arms",
-      organization: "Rotaract Club of Social Crew",
-      period: "Jul 2025 – Nov 2025",
-      points: [
-        "Coordinated meeting management, member logistics, and community engagement initiatives across social programs"
-      ]
+      title: "Netflix Titles Data Analysis",
+      tech: "Python, Pandas, Matplotlib, Seaborn",
+      description: [
+        "Performed exploratory data analysis (EDA) on Netflix Movies & TV Shows dataset",
+        "Analyzed genre popularity, content distribution, release trends, and platform growth indicators",
+        "Generated analytical visualizations and insight reports from large-scale entertainment data"
+      ],
+      github: "https://github.com/Arjamanmaaz/netflix-titles-analysis",
+      live: "https://github.com/Arjamanmaaz/netflix-titles-analysis"
     }
   ];
 
   return (
-    <section id="leadership" className={darkMode ? 'dark-section-alt' : 'light-section-alt'}>
+    <section id="projects" className={darkMode ? 'dark-section-alt' : 'light-section-alt'}>
       <div style={{ width: '100%', padding: '0 30px' }}>
-        <h2 className={`section-title ${darkMode ? 'dark-title' : 'light-title'}`}>Leadership & Activities</h2>
+        <h2 className={`section-title ${darkMode ? 'dark-title' : 'light-title'}`}>Projects</h2>
         
+        {/* 2x2 Grid */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
@@ -56,7 +66,7 @@ function Leadership({ darkMode }) {
           maxWidth: '1100px',
           margin: '0 auto'
         }}>
-          {leadershipRoles.map((role, index) => (
+          {projects.map((project, index) => (
             <div
               key={index}
               onMouseEnter={() => setHoveredCard(index)}
@@ -93,83 +103,45 @@ function Leadership({ darkMode }) {
                 transition: 'all 0.4s ease'
               }}></div>
 
-              <div style={{ 
-                display: 'flex', 
-                alignItems: 'flex-start', 
-                gap: '1rem', 
-                marginBottom: '1rem',
-                marginTop: '10px'
+              {/* Title */}
+              <h3 style={{ 
+                color: hoveredCard === index ? '#ffffff' : (darkMode ? '#ffffff' : '#2c3e50'), 
+                marginBottom: '0.6rem',
+                marginTop: '10px',
+                fontSize: '1.2rem',
+                fontWeight: '600',
+                transition: 'color 0.3s ease',
+                lineHeight: '1.4'
               }}>
-                <div style={{
-                  transition: 'transform 0.4s ease',
-                  transform: hoveredCard === index ? 'scale(1.2) rotate(10deg)' : 'scale(1) rotate(0deg)',
-                  flexShrink: 0
-                }}>
-                  <FaUsers 
-                    color={hoveredCard === index ? '#ffffff' : '#667eea'} 
-                    size={28}
-                    style={{ transition: 'color 0.3s ease' }}
-                  />
-                </div>
-                <div style={{ flex: 1 }}>
-                  <h3 style={{ 
-                    color: hoveredCard === index ? '#ffffff' : (darkMode ? '#ffffff' : '#2c3e50'), 
-                    marginBottom: '0.3rem',
-                    fontSize: '1.15rem',
-                    fontWeight: '600',
-                    transition: 'color 0.3s ease',
-                    lineHeight: '1.3'
-                  }}>
-                    {role.title}
-                  </h3>
-                  <p style={{ 
-                    color: hoveredCard === index ? '#f0f0f0' : '#667eea', 
-                    fontWeight: '500',
-                    fontSize: '0.9rem',
-                    transition: 'color 0.3s ease'
-                  }}>
-                    {role.organization}
-                  </p>
-                </div>
-              </div>
+                {project.title}
+              </h3>
               
-              <div style={{ 
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                marginBottom: '1.2rem',
-                background: hoveredCard === index ? 'rgba(255,255,255,0.2)' : (darkMode ? '#1a1a2e' : '#e8eaf6'),
-                padding: '6px 14px',
-                borderRadius: '20px',
-                transition: 'background 0.3s ease',
-                alignSelf: 'flex-start'
+              {/* Tech Stack */}
+              <p style={{ 
+                color: hoveredCard === index ? '#f0f0f0' : '#667eea', 
+                fontWeight: '500', 
+                marginBottom: '1.2rem', 
+                fontSize: '0.85rem',
+                transition: 'color 0.3s ease',
+                paddingBottom: '1rem',
+                borderBottom: hoveredCard === index ? '2px solid rgba(255,255,255,0.3)' : '2px solid #e8eaf6'
               }}>
-                <FaCalendar 
-                  size={13} 
-                  color={hoveredCard === index ? '#ffffff' : (darkMode ? '#b0b0b0' : '#666')}
-                  style={{ transition: 'color 0.3s ease' }}
-                />
-                <span style={{ 
-                  fontSize: '0.8rem',
-                  color: hoveredCard === index ? '#ffffff' : (darkMode ? '#e0e0e0' : '#555'),
-                  fontWeight: '500',
-                  transition: 'color 0.3s ease'
-                }}>
-                  {role.period}
-                </span>
-              </div>
+                {project.tech}
+              </p>
               
+              {/* Description */}
               <ul style={{ 
-                paddingLeft: '0',
-                listStyle: 'none',
-                flex: 1
+                paddingLeft: '1rem',
+                marginBottom: '1.5rem',
+                flex: 1,
+                listStyle: 'none'
               }}>
-                {role.points.map((point, idx) => (
+                {project.description.map((desc, idx) => (
                   <li key={idx} style={{ 
-                    marginBottom: '0.6rem',
+                    marginBottom: '0.6rem', 
+                    color: hoveredCard === index ? '#f0f0f0' : (darkMode ? '#b0b0b0' : '#555'),
                     fontSize: '0.9rem',
                     lineHeight: '1.5',
-                    color: hoveredCard === index ? '#f0f0f0' : (darkMode ? '#b0b0b0' : '#555'),
                     transition: 'color 0.3s ease',
                     display: 'flex',
                     gap: '0.5rem',
@@ -181,18 +153,69 @@ function Leadership({ darkMode }) {
                       flexShrink: 0,
                       transition: 'color 0.3s ease'
                     }}>▹</span>
-                    {point}
+                    {desc}
                   </li>
                 ))}
               </ul>
+              
+              {/* Links */}
+              <div style={{ 
+                display: 'flex', 
+                gap: '1rem',
+                borderTop: hoveredCard === index ? '2px solid rgba(255,255,255,0.3)' : '2px solid #e8eaf6',
+                paddingTop: '1rem',
+                flexWrap: 'wrap'
+              }}>
+                <a 
+                  href={project.github} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    color: hoveredCard === index ? '#ffffff' : '#667eea',
+                    textDecoration: 'none',
+                    fontSize: '0.85rem',
+                    fontWeight: '500',
+                    transition: 'all 0.3s ease',
+                    padding: '6px 14px',
+                    borderRadius: '8px',
+                    background: hoveredCard === index ? 'rgba(255,255,255,0.2)' : (darkMode ? '#1a1a2e' : '#e8eaf6')
+                  }}
+                >
+                  <FaGithub /> GitHub
+                </a>
+                <a 
+                  href={project.live} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    color: hoveredCard === index ? '#ffffff' : '#667eea',
+                    textDecoration: 'none',
+                    fontSize: '0.85rem',
+                    fontWeight: '500',
+                    transition: 'all 0.3s ease',
+                    padding: '6px 14px',
+                    borderRadius: '8px',
+                    background: hoveredCard === index ? 'rgba(255,255,255,0.2)' : (darkMode ? '#1a1a2e' : '#e8eaf6')
+                  }}
+                >
+                  <FaExternalLinkAlt /> View Project
+                </a>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
+      {/* Responsive: Stack on mobile */}
       <style>{`
         @media (max-width: 768px) {
-          #leadership > div > div > div {
+          #projects > div > div > div {
             grid-template-columns: 1fr !important;
           }
         }
@@ -201,4 +224,4 @@ function Leadership({ darkMode }) {
   );
 }
 
-export default Leadership;
+export default Projects;
