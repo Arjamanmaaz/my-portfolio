@@ -16,7 +16,7 @@ function Contact({ darkMode }) {
       icon: <FaLinkedin />,
       label: "LinkedIn",
       value: "linkedin.com/maazarjaman84",
-      link: "https://www.linkedin.com/maazarjaman84",
+      link: "https://www.linkedin.com/in/maazarjaman84",
       buttonText: "Connect"
     },
     {
