@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 
 function Projects({ darkMode }) {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -14,8 +14,7 @@ function Projects({ darkMode }) {
         "Designed 4 analytical dashboards tracking Members, Revenue, Trainer Performance, and User Engagement KPIs",
         "Built data tracking modules (Diet, Workout, Progress, Achievements) integrated with Groq AI"
       ],
-      github: "https://github.com/Arjamanmaaz/gymexora",
-      live: "https://github.com/Arjamanmaaz/gymexora"
+      github: "https://github.com/Arjamanmaaz/gymexora"
     },
     {
       title: "Sales & Customer Analytics Dashboard",
@@ -25,8 +24,7 @@ function Projects({ darkMode }) {
         "Developed 3 interconnected Power BI dashboards (Sales, Customer, Product Analytics) with DAX measures",
         "Applied Power Query for data transformation and ETL to support business performance monitoring"
       ],
-      github: "https://github.com/Arjamanmaaz/PowerBi-Sales-Dashboard",
-      live: "https://github.com/Arjamanmaaz/PowerBi-Sales-Dashboard"
+      github: "https://github.com/Arjamanmaaz/PowerBi-Sales-Dashboard"
     },
     {
       title: "FixBuddy – Service Provider Web Application",
@@ -36,8 +34,7 @@ function Projects({ darkMode }) {
         "Built reusable React.js components for Landing Pages, Authentication, and Service Request modules",
         "Implemented responsive UI design ensuring cross-device compatibility"
       ],
-      github: "#",
-      live: "#"
+      github: "#"
     },
     {
       title: "Netflix Titles Data Analysis",
@@ -47,25 +44,23 @@ function Projects({ darkMode }) {
         "Analyzed genre popularity, content distribution, release trends, and platform growth indicators",
         "Generated analytical visualizations and insight reports from large-scale entertainment data"
       ],
-      github: "https://github.com/Arjamanmaaz/netflix-titles-analysis",
-      live: "https://github.com/Arjamanmaaz/netflix-titles-analysis"
+      github: "https://github.com/Arjamanmaaz/netflix-titles-analysis"
     }
   ];
 
   return (
     <section id="projects" className={darkMode ? 'dark-section-alt' : 'light-section-alt'}>
-      <div style={{ width: '100%', padding: '0 30px' }}>
+      <div style={{ width: '100%', padding: '0 15px' }}>
         <h2 className={`section-title ${darkMode ? 'dark-title' : 'light-title'}`}>Projects</h2>
         
-        {/* 2x2 Grid */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '25px',
+          gap: '20px',
           width: '100%',
           maxWidth: '1100px',
           margin: '0 auto'
-        }}>
+        }} className="projects-grid">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -73,149 +68,76 @@ function Projects({ darkMode }) {
               onMouseLeave={() => setHoveredCard(null)}
               style={{
                 background: hoveredCard === index 
-                  ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
-                  : (darkMode ? '#0f3460' : 'white'),
-                borderRadius: '15px',
-                padding: '35px 30px',
-                boxShadow: hoveredCard === index 
-                  ? '0 15px 40px rgba(102, 126, 234, 0.4)' 
-                  : '0 5px 20px rgba(0,0,0,0.08)',
-                transition: 'all 0.4s ease',
-                transform: hoveredCard === index ? 'translateY(-8px) scale(1.02)' : 'translateY(0) scale(1)',
+                  ? 'linear-gradient(135deg, #6366f1, #06b6d4)' 
+                  : (darkMode ? '#1a1a3e' : 'white'),
+                borderRadius: '12px',
+                padding: '25px',
+                boxShadow: hoveredCard === index ? '0 10px 35px rgba(99,102,241,0.4)' : '0 2px 10px rgba(0,0,0,0.06)',
+                transition: 'all 0.3s ease',
+                transform: hoveredCard === index ? 'translateY(-5px)' : 'translateY(0)',
                 cursor: 'pointer',
-                border: hoveredCard === index ? '2px solid #667eea' : '2px solid transparent',
+                border: hoveredCard === index ? '2px solid #6366f1' : '2px solid transparent',
                 display: 'flex',
                 flexDirection: 'column',
                 position: 'relative',
                 overflow: 'hidden'
               }}
             >
-              {/* Top accent bar */}
               <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                height: '4px',
-                background: hoveredCard === index 
-                  ? 'rgba(255,255,255,0.5)' 
-                  : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                transition: 'all 0.4s ease'
+                position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
+                background: hoveredCard === index ? 'rgba(255,255,255,0.5)' : 'linear-gradient(135deg, #6366f1, #06b6d4)',
+                transition: 'all 0.3s ease'
               }}></div>
 
-              {/* Title */}
               <h3 style={{ 
-                color: hoveredCard === index ? '#ffffff' : (darkMode ? '#ffffff' : '#2c3e50'), 
-                marginBottom: '0.6rem',
-                marginTop: '10px',
-                fontSize: '1.2rem',
-                fontWeight: '600',
-                transition: 'color 0.3s ease',
-                lineHeight: '1.4'
+                color: hoveredCard === index ? '#ffffff' : (darkMode ? '#e2e8f0' : '#0f172a'), 
+                marginBottom: '0.5rem', marginTop: '8px', fontSize: '1.1rem', fontWeight: '600',
+                transition: 'color 0.3s ease'
               }}>
                 {project.title}
               </h3>
               
-              {/* Tech Stack */}
               <p style={{ 
-                color: hoveredCard === index ? '#f0f0f0' : '#667eea', 
-                fontWeight: '500', 
-                marginBottom: '1.2rem', 
-                fontSize: '0.85rem',
-                transition: 'color 0.3s ease',
-                paddingBottom: '1rem',
-                borderBottom: hoveredCard === index ? '2px solid rgba(255,255,255,0.3)' : '2px solid #e8eaf6'
+                color: hoveredCard === index ? 'rgba(255,255,255,0.9)' : '#6366f1', fontWeight: '500', 
+                marginBottom: '1rem', fontSize: '0.8rem', paddingBottom: '0.8rem',
+                borderBottom: hoveredCard === index ? '1px solid rgba(255,255,255,0.3)' : '1px solid #e2e8f0',
+                transition: 'all 0.3s ease'
               }}>
                 {project.tech}
               </p>
               
-              {/* Description */}
-              <ul style={{ 
-                paddingLeft: '1rem',
-                marginBottom: '1.5rem',
-                flex: 1,
-                listStyle: 'none'
-              }}>
+              <ul style={{ paddingLeft: '1rem', marginBottom: '1.5rem', flex: 1, listStyle: 'none' }}>
                 {project.description.map((desc, idx) => (
                   <li key={idx} style={{ 
-                    marginBottom: '0.6rem', 
-                    color: hoveredCard === index ? '#f0f0f0' : (darkMode ? '#b0b0b0' : '#555'),
-                    fontSize: '0.9rem',
-                    lineHeight: '1.5',
-                    transition: 'color 0.3s ease',
-                    display: 'flex',
-                    gap: '0.5rem',
-                    alignItems: 'flex-start'
+                    marginBottom: '0.5rem', fontSize: '0.85rem', lineHeight: '1.5',
+                    color: hoveredCard === index ? '#f0f0f0' : (darkMode ? '#94a3b8' : '#475569'),
+                    display: 'flex', gap: '0.4rem', alignItems: 'flex-start',
+                    transition: 'color 0.3s ease'
                   }}>
-                    <span style={{
-                      color: hoveredCard === index ? '#ffffff' : '#667eea',
-                      fontWeight: 'bold',
-                      flexShrink: 0,
-                      transition: 'color 0.3s ease'
-                    }}>▹</span>
+                    <span style={{ color: hoveredCard === index ? '#ffffff' : '#6366f1', fontWeight: 'bold' }}>▹</span>
                     {desc}
                   </li>
                 ))}
               </ul>
               
-              {/* Links */}
-              <div style={{ 
-                display: 'flex', 
-                gap: '1rem',
-                borderTop: hoveredCard === index ? '2px solid rgba(255,255,255,0.3)' : '2px solid #e8eaf6',
-                paddingTop: '1rem',
-                flexWrap: 'wrap'
-              }}>
-                <a 
-                  href={project.github} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.4rem',
-                    color: hoveredCard === index ? '#ffffff' : '#667eea',
-                    textDecoration: 'none',
-                    fontSize: '0.85rem',
-                    fontWeight: '500',
-                    transition: 'all 0.3s ease',
-                    padding: '6px 14px',
-                    borderRadius: '8px',
-                    background: hoveredCard === index ? 'rgba(255,255,255,0.2)' : (darkMode ? '#1a1a2e' : '#e8eaf6')
-                  }}
-                >
-                  <FaGithub /> GitHub
-                </a>
-                <a 
-                  href={project.live} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.4rem',
-                    color: hoveredCard === index ? '#ffffff' : '#667eea',
-                    textDecoration: 'none',
-                    fontSize: '0.85rem',
-                    fontWeight: '500',
-                    transition: 'all 0.3s ease',
-                    padding: '6px 14px',
-                    borderRadius: '8px',
-                    background: hoveredCard === index ? 'rgba(255,255,255,0.2)' : (darkMode ? '#1a1a2e' : '#e8eaf6')
-                  }}
-                >
-                  <FaExternalLinkAlt /> View Project
-                </a>
+              <div style={{ borderTop: hoveredCard === index ? '1px solid rgba(255,255,255,0.3)' : '1px solid #e2e8f0', paddingTop: '0.8rem' }}>
+                <a href={project.github} target="_blank" rel="noopener noreferrer" style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                  color: hoveredCard === index ? '#ffffff' : '#6366f1',
+                  textDecoration: 'none', fontSize: '0.85rem', fontWeight: '500',
+                  padding: '6px 14px', borderRadius: '6px',
+                  background: hoveredCard === index ? 'rgba(255,255,255,0.2)' : (darkMode ? '#1e1e40' : '#eef2ff'),
+                  transition: 'all 0.3s ease'
+                }}><FaGithub /> View on GitHub</a>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Responsive: Stack on mobile */}
       <style>{`
         @media (max-width: 768px) {
-          #projects > div > div > div {
+          .projects-grid {
             grid-template-columns: 1fr !important;
           }
         }
